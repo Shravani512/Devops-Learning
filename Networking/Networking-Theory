@@ -1,1 +1,15 @@
 
+Networking in DevOps is the backbone that enables communication between servers, applications, and users. It ensures reliable connectivity, security, and data flow across environments. Understanding networking helps DevOps engineers manage infrastructure, troubleshoot issues, and optimize performance in cloud and CI/CD setups.
+
+Topics-
+
+1. Global Internet Infrastructure 
+2. Understanding the OSI and TCP/IP models
+3. Working of routers and switches
+4. Basics of cloud networking and on-premises infrastructure
+5. Concepts like subnetting and CIDR notation
+6. Overview of data center networking and network diagrams
+
+
+
+
