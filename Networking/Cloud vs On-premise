@@ -1,1 +1,72 @@
+What is On-Premise?
+
+In an on-premise setup, all servers, networking devices, and storage systems are physically located within an organization’s data center.
+The company is responsible for maintaining, securing, and upgrading the hardware and software.
+
+User Request
+     ↓
+Local Network
+     ↓
+Company Servers (Data stored on in-house machines)
+     ↓
+Database / Application Access
+
+Key Features
+
+Full control over hardware and data
+
+Requires in-house IT management
+
+One-time infrastructure investment
+
+High maintenance and upgrade costs
+
+✅ Best For-
+Organizations with strict security, compliance requirements, or applications that must stay within local infrastructure.
+
+---------------------------------------------------------------------
+
+What is Cloud Computing?
+
+In cloud computing, infrastructure (servers, storage, databases, etc.) is hosted and managed by a third-party cloud provider (like AWS, Azure, GCP).
+Users access resources over the internet on a pay-as-you-go basis — without needing to maintain physical hardware.
+
+User Request
+     ↓
+Internet
+     ↓
+Cloud Provider’s Servers (AWS, Azure, GCP)
+     ↓
+Data / Application Access from Anywhere
+
+Key Features
+
+No physical infrastructure to manage
+
+Highly scalable and elastic resources
+
+Pay only for what you use
+
+Accessible globally with built-in redundancy
+
+✅ Best For
+
+Businesses aiming for cost efficiency, scalability, and faster deployment.
+
+        ┌──────────────────────────┐             ┌──────────────────────────┐
+        │      On-Premise Setup    │             │       Cloud Setup        │
+        ├──────────────────────────┤             ├──────────────────────────┤
+        │ User → Local Network →   │             │ User → Internet →        │
+        │ Company Servers → Data   │             │ Cloud Provider Servers → │
+        │                          │             │ Data / Apps in Cloud     │
+        └──────────────────────────┘             └──────────────────────────┘
+
+
+Summary :
+
+On-Premise: Everything is owned, controlled, and managed locally.
+Cloud: Resources are hosted remotely and delivered via the internet.
+Cloud computing reduces cost, increases scalability, and simplifies management.
+Most organizations today use a hybrid approach — mixing both models for balance.
+
 
