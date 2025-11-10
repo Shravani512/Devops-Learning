@@ -1,1 +1,75 @@
+Subnetting and CIDR Notation 
 
+In networking, every device connected to a network has an IP address.
+But managing and organizing these addresses efficiently requires Subnetting and CIDR (Classless Inter-Domain Routing).
+These two concepts help optimize IP usage, improve security, and enhance network performance.
+
+🧩 What is Subnetting?
+
+Subnetting means dividing a large network into smaller, manageable parts called subnets.
+Each subnet functions as a smaller network within a larger one, improving routing efficiency and control.
+
+Subnetting process:
+
+Main Network (192.168.10.0/24)
+          ↓
+Divide into 4 Subnets (/26)
+          ↓
+Assign each Subnet to Department (HR, IT, Sales, Admin)
+          ↓
+Each Department gets its own range and broadcast address
+
+
+🧩 What is CIDR Notation?
+
+CIDR (Classless Inter-Domain Routing) is a modern way to represent IP addresses and subnet masks.
+It replaces the old Class A/B/C system and gives us flexibility to allocate addresses precisely as needed.
+eg. IP Address / Prefix Length
+Example: 192.168.1.0/24
+
+/24 means the first 24 bits are network bits, and the remaining 8 are host bits.
+The subnet mask for /24 is 255.255.255.0.
+
+🧩 Why Subnetting is Needed
+
+Reduces network congestion
+Enhances security by isolating departments
+Makes IP address management easier
+Optimizes performance by reducing broadcast traffic
+
+Example of Subnetting
+
+Let’s say we have a network: 192.168.10.0/24  (24 network bits and 8 host bits)
+
+If you want to divide it into 6 smaller networks
+So will have to borrow host bits and increase network bits.
+
+bits need to borrow 2^n >= number of subnets needs to be created. So n=3
+so here need to borrow 3 host bits so the slash notation will be
+192.168.10.0/27 (27 network bits and 5 host bits)
+
+so now 8 subnets will be created. 2^n
+
+Subnet mask:
+1 = 10000000 128
+2 = 11000000 192
+3 = 11100000 224
+
+step = 256/8 = 32
+
+Subnet 1 = 192.168.10.0
+Subnet 2 = 192.168.10.32
+Subnet 3 = 192.168.10.64
+Subnet 4 = 192.168.10.128
+Subnet 5 = 192.168.10.192
+Subnet 6 = 192.168.10.224
+
+so subnet mask in 224 as we borrowed 3 host bits
+
+Each subnet will have 64 IP addresses.
+
+Summary:
+
+Subnetting divides networks for better management and security.
+CIDR Notation helps define network sizes flexibly.
+Together, they optimize IP address allocation and routing.
