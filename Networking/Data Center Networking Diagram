@@ -1,1 +1,117 @@
 
+Refer Image- https://share.google/LoY6IvN0J1kIcdzFw
+
+Detailed Explanation of the Data Center Network Diagram
+
+The diagram represents a hybrid IT infrastructure, where multiple Data Centers and Client Centers are connected through routers, switches, firewalls,
+and the Internet to handle requests, store data, and maintain secure communication.
+
+1. On-Premise Data Center (Left Side)
+
+Components:
+
+Servers:
+
+WWW Server: Hosts web applications and websites.
+File Server: Stores internal files, shared data, and logs.
+Database Servers: Store structured data such as user info, transactions, etc.
+Communication Servers: Handle internal communication or API traffic.
+
+Networking Devices:
+
+Switch: Connects all internal servers, PCs (Managers, Finance, Monitoring). Works on Layer 2 (Data Link Layer) of the OSI model.
+Router: Connects the internal LAN to external networks (WAN/Internet). Works on Layer 3 (Network Layer).
+Firewall: Protects the network by filtering malicious or unauthorized traffic before it goes to the internet.
+
+Flow (when request starts here):
+
+1. A Manager or Client System sends a request → goes to Switch.
+2. The Switch forwards it to the appropriate Server (e.g., WWW Server).
+3. If the server has the requested data → it sends the response back through the same path.
+4. If data is **not available** locally → the request is routed to the external Data Center or Cloud via Router & Internet.
+
+2. Secondary / Remote Data Center (Right Side)
+
+Components:
+
+Database Server: Contains backups or extended datasets.
+Communication Client: Interacts with main communication servers in the primary data center.
+Switch & Router: Facilitate data exchange and manage network traffic.
+
+Flow:
+
+1. When the primary data center doesn’t have the requested data,
+   the Router forwards the request via DDN (Dedicated Digital Network) to this remote data center.
+2. The remote data center’s servers process the request and fetch or compute the required data.
+3. Data is then sent back through the same DDN connection to the primary data center and then to the user.
+
+Purpose:
+
+Backup and disaster recovery
+Load balancing and latency reduction
+Resource sharing across multiple branches
+
+
+3. Client Centers (Bottom Left & Right)
+
+Components:
+
+Client systems like Record, Finance, Customs, Others
+Local Switches connecting all PCs internally
+Routers that connect the client center to the Internet
+
+Flow:
+
+1. User (e.g., Finance team) sends a request from their PC → Switch → Router → Internet.
+2. Internet forwards it to the on-premise or cloud data center.
+3. The response travels back along the same route.
+
+If data is not available in on-premise:
+
+The data center router forwards the request to remote data centers or cloud-based infrastructure.
+The cloud handles the request, retrieves data from scalable cloud servers, and sends it back via the same network path.
+
+4. Firewall and Internet Connectivity (Middle Section)
+
+Components:
+
+Firewall: Sits between the internal data center and external internet.
+
+Filters traffic
+Blocks unauthorized access
+Logs suspicious activity
+Routers: Manage routing between the internal network, remote data centers, and the Internet.
+
+Flow:
+
+1. When data travels from the on-premise server to an external server (like cloud),
+   the firewall checks and approves packets based on rules (ports, IPs, protocols).
+2. The router determines the best route (either Internet or DDN line).
+3. Response packets pass through the firewall again to reach the original requester safely.
+
+End-to-End Request Flow Summary
+
+Let’s combine all compartments into one data journey:
+
+Client Device
+   ↓
+Local Switch → Router → Internet
+   ↓
+Firewall → On-Premise Data Center (Servers)
+   ↓
+If data not found →
+   Router → DDN / Internet → Remote Data Center / Cloud
+   ↓
+Data fetched → returned to On-Premise
+   ↓
+Firewall → Router → Internet → Client
+
+
+When Data Moves to Cloud
+
+If your system is hybrid (cloud + on-premise):
+
+1. Data request first checks on-premise servers.
+2. If not found, request is routed to the cloud via secure VPN or internet tunnel.
+3. Cloud servers (like AWS, Azure, GCP) respond to the query.
+4. Response is delivered back to the user through the same chain.
