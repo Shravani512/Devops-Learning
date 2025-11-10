@@ -1,1 +1,49 @@
+Routers and switches are essential devices that help transfer data efficiently between computers and networks. Though they both forward data, 
+they operate at different layers of the OSI model and serve different purposes.
 
+👉 Switch: The Local Traffic Controller
+
+A Switch connects multiple devices (computers, printers, servers) within the same local area network (LAN).
+It works at the Data Link Layer (Layer 2) of the OSI model and uses MAC addresses to identify where to send data frames.
+
+working-
+
+Device A → sends data to Device B
+        ↓
+Switch receives data frame
+        ↓
+Reads destination MAC address
+        ↓
+Checks MAC address table
+        ↓
+Forwards frame only to Device B’s port
+
+---------------------------------------------------------
+
+👉 Router — The Network Gateway
+
+A Router connects multiple networks (like your home LAN to the Internet).
+It works at the Network Layer (Layer 3) and uses IP addresses to route data packets to their correct destinations across different networks.
+
+Working-
+
+PC (192.168.1.5) → wants to reach google.com (142.250.x.x)
+          ↓
+Router checks IP address and routing table
+          ↓
+Encapsulates packet with next-hop IP
+          ↓
+Forwards it to the Internet (ISP)
+          ↓
+Receives response packet and routes it back to the correct LAN device
+
+-----------------------------------------------------------------
+
+
+Device	Layer	Uses Address	Function:
+
+Switch->	Layer 2 (Data Link)	uses MAC Address to Connects devices within a LAN
+Router->	Layer 3 (Network)	uses IP Address to Connects multiple networks (LAN ↔ WAN)
+
+👉A Switch manages data traffic inside your network.
+👉A Router manages data traffic between networks.
