@@ -1,0 +1,40 @@
+
+Networking in DevOps is the backbone that enables communication between servers, applications, and users. It ensures reliable connectivity, security,
+and data flow across environments. Understanding networking helps DevOps engineers manage infrastructure, troubleshoot issues, and optimize performance 
+in cloud and CI/CD setups.
+
+Topics-
+
+1. Global Internet Infrastructure 
+2. Understanding the OSI and TCP/IP models
+3. Working of routers and switches
+4. Basics of cloud networking and on-premises infrastructure
+5. Concepts like subnetting and CIDR notation
+6. Overview of data center networking and network diagrams
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Global Internet Infrastructure 
+
+Undersea Cables (Southeast Asia–Middle East–Western Europe, India-Asia-Xpress, India-Europe-Xpress by Reliance Jio)
+     ↓
+Tier 1 Backbone (AT&T, Verizon, Level 3 Communications (Lumen), Tata Communications, NTT Communications)
+     ↓
+Tier 2 Regional ISPs   (Airtel, Vodafone Idea, BSNL)
+     ↓
+Tier 3 Local ISPs (JioFiber, Hathway, You Broadband)
+     ↓
+Home Modem & Router (D-Link, Airtel Xstream Fiber Router)
+     ↓
+User Devices (Laptops, Mobiles) 
+
+The global internet infrastructure connects users worldwide through a layered network system. Data travels first via undersea fiber-optic cables linking
+continents, then through Tier 1 backbone providers that form the internet’s core. Tier 2 ISPs distribute connectivity regionally, while Tier 3 ISPs deliver 
+it to homes and local users. The home modem and router convert signals into usable internet connections. Finally, user devices like laptops and mobiles access
+the web through these interconnected layers.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
