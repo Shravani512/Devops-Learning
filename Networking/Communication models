@@ -51,17 +51,6 @@ Comparison: OSI vs TCP/IP
 | Relationship      | Conceptual reference         | Actual implementation                |
 
 
-How They Work Together**
-
-When you send a message or file:
-
-1. It starts at the Application Layer**\\ (user interaction).
-2. Moves down through each layer where it’s packaged with necessary headers and info.
-3. Travels through the **network** (routers, switches, cables).
-4. The receiving device then unwraps it layer by layer until it reaches the app again.
-
-Each layer only communicates with its **corresponding layer** on the other device — this is called **peer-to-peer communication**.
-
 👉 Real-Life Analogy
 
 At Sender Side:
