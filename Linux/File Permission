@@ -19,13 +19,13 @@ ls -la     -> Includes hidden files
 
 Truth table for file permission 
 
-     r	 w	 x	Description
+        r	 w	 x	Description
 0	   0	 0	 0	No permission
 1	   0	 0	 1	Execute only
 2	   0	 1	 0	Write only
 3	   0	 1	 1	Write + Execute
 4	   1	 0	 0	Read only
-5    1	 0	 1	Read + Execute
+5       1	 0	 1	Read + Execute
 6	   1	 1	 0	Read + Write
 7	   1	 1	 1  Read + Write + Execute 
 
