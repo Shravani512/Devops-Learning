@@ -2,10 +2,23 @@ Assignment1: Create 3 volumes and mount for use in 2 ways-
                  1. Logical mounting
                  2. Disk mounting
 
+Logical mounting: 
+Logical mounting refers to mounting a Logical Volume (LV) that is created using LVM (Logical Volume Manager). The LV is an abstraction over physical
+volumes (PVs) and volume groups (VGs), which allows for flexible storage allocation like resizing, snapshots, and combining multiple disks.
+Uses LVM layers: PV → VG → LV → Mount point
+
+Disk mounting:
+Disk mounting refers to mounting a physical disk or partition directly to a directory, without LVM abstraction. The OS interacts with the disk directly
+as a block device.
+No LVM involved, just format and mount the raw disk
+
+---------------------------------------------------------------------------------
+
 Scenario:
 v1 and v2 are combined into a Volume Group (VG) and a Logical Volume (LV) is created and mounted logically for use.
 v3 remains a standalone physical volume and is mounted directly as a disk.
 
+Logical mpounting:
 
 Create 3 volumes v1, v2, v3 on AWS
           |
@@ -30,6 +43,34 @@ Create 3 volumes v1, v2, v3 on AWS
 error: Physical volume "/dev/xvdh" not found
 solution: 1. Add it to existing Volume Group (sudo vgextend vg_data /dev/xvdh)
           2. remove physical vol which is not added in group (vgreduce --removemissing xvdh)
+
+
+------------------------------------------------------------------------------------------------------------
+
+Disk mounting:
+
+[Step 1: Attach Physical Disk]
+   (e.g., /dev/xvdh)
+          |
+          v
+[Step 2: Verify Disk]
+   Command: lsblk
+          |
+          v
+[Step 3: Format Disk with Filesystem]
+   Command: mkfs.ext4 /dev/xvdh
+          |
+          v
+[Step 4: Create Mount Point]
+   Command: mkdir -p /mnt/data3
+          |
+          v
+[Step 5: Mount Disk]
+   Command: mount /dev/xvdh /mnt/data3
+          |
+          v
+[Step 6: Verify Mounted Disk]
+   Command: df -h | grep /mnt/data3
 
 
 
