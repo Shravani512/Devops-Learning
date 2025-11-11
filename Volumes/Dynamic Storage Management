@@ -1,0 +1,68 @@
+Dynamic Storage Management in Linux:
+
+Managing storage efficiently is one of the key responsibilities of a Linux system administrator. With the increasing need for flexibility, 
+Dynamic Storage Management (DSM) allows administrators to resize, reallocate, and optimize storage on the fly without downtime.
+
+Dynamic Storage Management (DSM) is the ability to adapt storage capacity dynamically based on workload or requirement. Unlike static partitions, DSM allows you to:
+
+Expand or shrink storage volumes
+Add or remove disks without downtime
+Optimize performance and redundancy
+
+---------------------------------------------------------------------------------------------------------------
+
+DSM is primarily implemented using Logical Volume Management (LVM)
+
+Dynamic storage management flow diagram:
+
+     create volumes on AWS
+          |
+[Step 1: Create Physical Volume (PV)]
+  Command: pvcreate /dev/sdb
+          |
+          v
+[Step 2: Create Volume Group (VG)]
+  Command: vgcreate vg_data /dev/sdb
+          |
+          v
+[Step 3: Create Logical Volume (LV)]
+  Command: lvcreate -L 10G -n lv_storage vg_data
+          |
+          v
+[Step 4: Format & Mount Volume]
+  Command: mkfs.ext4 /dev/vg_data/lv_storage
+  Command: mount /dev/vg_data/lv_storage /mnt/storage
+          |
+          v
+[Accessible Storage]
+          |
+          v
+---------------------------------------------------
+|           Dynamic Storage Management           |
+---------------------------------------------------
+[Step 5: Add New Physical Volume (PV)]
+  Command: pvcreate /dev/sdc
+          |
+          v
+[Step 6: Extend Volume Group (VG)]
+  Command: vgextend vg_data /dev/sdc
+          |
+          v
+[Step 7: Extend Logical Volume (LV)]
+  Command: lvextend -L +5G /dev/vg_data/lv_storage
+          |
+          v
+[Step 8: Resize Filesystem]
+  Command: resize2fs /dev/vg_data/lv_storage   # For ext4
+          |
+          v
+[Step 9: Optional: Create Snapshot]
+  Command: lvcreate -s -L 2G -n lv_snapshot /dev/vg_data/lv_storage
+          |
+          v
+[Step 10: Expanded & Protected Storage Accessible]
+
+---------------------------
+
+Shows initial volume setup (PV → VG → LV → Mount)
+Shows dynamic storage operations (add disk, extend VG/LV, resize filesystem)
