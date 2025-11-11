@@ -1,1 +1,35 @@
+Assignment1: Create 3 volumes and mount for use in 2 ways-
+                 1. Logical mounting
+                 2. Disk mounting
+
+Scenario:
+v1 and v2 are combined into a Volume Group (VG) and a Logical Volume (LV) is created and mounted logically for use.
+v3 remains a standalone physical volume and is mounted directly as a disk.
+
+
+Create 3 volumes v1, v2, v3 on AWS
+          |
+[Step 1: PV Creation]
+  pvcreate /dev/xvdf /dev/xvdg /dev/xvdh
+          |
+          v
+[Step 2: VG Creation (v1+v2 only)]
+  vgcreate vg_data /dev/xvdf /dev/xvdg
+          |
+          v
+[Step 3: LV Creation for Data]
+  lvcreate -L 5G -n lv_data1 vg_data
+          |
+          v
+[Step 4: Logical Mounting of LV]
+  mkfs.ext4 /dev/vg_data/lv_data1
+  mkdir /mnt/data1
+  mount /dev/vg_data/lv_data1 /mnt/data1
+          |
+          v
+error: Physical volume "/dev/xvdh" not found
+solution: 1. Add it to existing Volume Group (sudo vgextend vg_data /dev/xvdh)
+          2. remove physical vol which is not added in group (vgreduce --removemissing xvdh)
+
+
 
