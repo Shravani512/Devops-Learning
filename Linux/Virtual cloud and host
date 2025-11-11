@@ -1,0 +1,76 @@
+Understanding Virtual Cloud, Public & Private Hosts, and Bastion Host:
+
+In modern cloud architectures, security and controlled access to resources are critical. Organizations often deploy resources in public and private
+networks within a virtual cloud environment, using tools like a Bastion Host to maintain secure access. Let’s break down these concepts.
+
+What is a Virtual Cloud?
+
+A Virtual Cloud is a software-defined infrastructure that mimics a physical network in the cloud. It provides:
+
+Isolation: Different resources (servers, databases, applications) can run in separate virtual networks.
+Scalability: Easily add or remove servers or services as needed.
+Security: Control access using subnets, security groups, and firewalls.
+Example: AWS VPC (Virtual Private Cloud), Azure Virtual Network, GCP VPC.
+
+A virtual cloud typically has public and private subnets:
+
+Public Subnet: Resources here can communicate with the internet via an Internet Gateway. Examples: web servers, load balancers.
+Private Subnet: Resources here cannot access the internet directly; often used for databases, application servers, and sensitive data.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Public and Private Hosts
+
+In cloud environments, servers are categorized based on their accessibility:
+
+Public Host
+
+Has a public IP address.
+Accessible directly from the internet.
+Examples: Web servers, bastion hosts.
+Risks: Exposed to attacks if not properly secured.
+
+Private Host
+
+Has only a private IP address.
+Not directly reachable from the internet.
+Typically communicates internally within the virtual cloud.
+Examples: Database servers, application servers.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+What is a Bastion Host?
+
+A Bastion Host (also called a jump server) is a special-purpose server used to securely access private hosts in a cloud environment.
+
+Purpose
+
+Acts as a bridge between public internet and private network.
+Reduces attack surface by limiting direct access to private servers.
+
+How it Works
+
+You connect to the Bastion Host using SSH (Linux) or RDP (Windows).
+From the Bastion Host, you access the private hosts in the private subnet.
+This ensures:
+No direct exposure of private hosts to the internet.
+Centralized logging of access for auditing purposes.
+
+Internet
+   |
+   | SSH/RDP
+   v
+Bastion Host (Public Subnet)
+   |
+   | SSH/RDP
+   v
+Private Hosts (Private Subnet)
+   |
+   v
+Databases / Internal Services
+
+A Bastion Host is the secure gateway to access private hosts inside a virtual cloud. By separating resources into public and private subnets, organizations
+can protect sensitive data while still allowing necessary access. Understanding this architecture is essential for cloud security and managing 
+infrastructure effectively.
+
+Access: Needs a secure path (like VPN or Bastion Host) to connect from outside.
