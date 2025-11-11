@@ -1,0 +1,58 @@
+Users and Groups in Linux
+
+What is a User?
+
+Linux is a multi-user operating system, which means multiple people can use the same system at the same time — each having different access levels and permissions.
+To manage this efficiently, Linux uses Users and Groups.
+
+A user is an individual account that can log in and perform actions on the system.
+Each user has:
+
+1. A username
+2. A user ID (UID)
+3. A home directory
+4. A default shell
+5. Permissions that control what they can access or modify.
+
+👉 Every user’s information is stored in:
+/etc/passwd
+
+create user
+sudo useradd username
+---------------------------------------------------------------------------------------------------------------
+
+What is a Group?
+
+A group is a collection of users.
+It allows you to manage permissions for multiple users at once — instead of assigning them individually.
+
+👉 Group information is stored in:
+/etc/group
+
+sudo groupadd developers
+
+sudo useradd -m -G developers user1
+sudo usermod -aG user2 developers
+
+Important Files
+File	Purpose
+/etc/passwd->	  Stores user account details
+/etc/shadow->	  Stores encrypted passwords
+/etc/group ->	  Stores group information
+/etc/gshadow->	Stores group passwords and security info
+
+UID/GID->  Unique IDs for tracking
+
+--------------------------------------------------------------------------------------------------------------------
+
+commands:
+
+Add a new user     ->	 sudo useradd username	Creates a user account
+Set password	     ->  sudo passwd username	Assigns password
+Delete a user      ->  sudo userdel username	Removes user
+Add a group	       ->  sudo groupadd groupname	Creates a new group
+Add user to group	 ->  sudo usermod -aG groupname username	Adds user to a group
+Show groups of user->  groups username	Lists all groups a user belongs to
+Show all users	   ->  cat /etc/passwd	Lists all system users
+Show all groups	   ->  cat /etc/group	Lists all groups
+
