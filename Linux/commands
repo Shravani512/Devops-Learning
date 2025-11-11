@@ -1,1 +1,63 @@
+Assignment1 - Creating and writing in a file
+
+touch file.txt 
+     |
+vim file.txt
+     |
+press i for insert mode
+     |
+  writing
+     |
+esc :wq enter (save and close file) 
+
+
+-----------------------------------------------------------------------------------------------------------
+
+Assignment2 - Created HTML webpage and host on nginx
+
+Create HTML page index.html
+     |
+place file in nginx root /var/www/html
+     |
+writing in a file
+     |
+check file permission (ls-l)
+     |
+Start/Restart Nginx, sudo systemctl, restart nginx   
+     |
+access via browser htt://server-public-ip:port number (nginx by default serves on port 80)
+keep port 80 open for all access
+intance-> security-> security group sg-> inbound rule-> custom tcp port 80-> 0.0.0.0/0 all ip address-> save
+
+--------------------------------------------------------------------------------------------------------------
+
+Assignment3 - SSH connect
+
+ssh -i "private key filename.pem" ubuntu@dnsHostName
+
+---------------------------------------------------------------------------------------------------------------
+
+
+Assignment 4 - Connect 2 servers
+
+Create 2 servers (ServerA ServerB)
+connecting serverA to serverB
+      |
+check ssh installed on both ssh -V
+sudo apt install openssh-client openssh-server -y
+      |
+for ssh public and private key is req public key on serverB and private on serverA
+      |
+create key pair ssh-keygen
+      |
+paste public key on serverB /home/user/.ssh/authorized_keys (paste copied public key from serverA)
+to get public key from private key file name ( ssh-keygen -y -f ~/Downloads/privatekeyFilename.pem)
+      |
+Now ssh on serverA ssh -i "filename.pem" ubuntu@publicipOfServerB
+      |
+  Connected
+
+----------------------------------------------------------------------------------------------------------------
+
+
 
