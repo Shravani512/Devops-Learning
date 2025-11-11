@@ -1,0 +1,85 @@
+In Linux, volumes are the basic building blocks for storing, organizing, and managing data on disks. Whether you're managing a personal server
+or enterprise-grade storage, understanding volumes is crucial for efficient storage management.
+
+What is a Volume in Linux?
+
+A volume is a storage unit that your operating system uses to store files. In Linux, volumes are typically created on partitions, logical volumes (LVM), or physical disks. Volumes abstract the underlying hardware, allowing flexibility in storage allocation, resizing, and management.
+Key point: A volume can be smaller or larger than a disk partition and can span multiple disks using LVM.
+
+Volume Management Commands
+
+Command	Purpose
+lsblk	        ->        Lists all block devices and volumes
+df -h	        ->        Shows disk space usage for mounted volumes
+mount         ->       	Mounts a volume to a directory
+umount        ->       	Unmounts a volume
+pvcreate, vgcreate, lvcreate	        ->       Create physical, volume groups, and logical volumes
+lvextend / lvreduce	                  ->       Resize logical volumes
+mkfs	                                ->       Format a volume with a filesystem
+
+4. Filesystems on Volumes
+
+Before using a volume, you must format it with a filesystem. Common Linux filesystems include:
+
+ext4             →         Default for most Linux distros
+xfs              →         High-performance, used in RHEL/CentOS
+btrfs            →         Supports snapshots and checksums
+vfat / ntfs      →         Compatible with Windows
+
+-------------------------------------------------------------------------------------------------------------
+
+Types of volumes:
+
+Physical Volumes
+
+Physical disks or partitions form the foundation.
+Used directly by the system or as part of LVM.
+
+Command: fdisk -l    Lists all physical disks and partitions
+
+fdisk -l 
+
+-----------------------------------------------
+
+Logical Volume
+
+Logical Volumes (LVM)
+
+Allows combining multiple physical volumes into volume groups (VG).
+Logical volumes (LV) can be resized dynamically without affecting data.
+
+Example:
+
+Create a physical volume
+sudo pvcreate /dev/sdb
+      |
+Create a volume group
+sudo vgcreate vg_data /dev/sdb
+      |
+Create a logical volume
+sudo lvcreate -L 10G -n lv_storage vg_data
+      |
+Format and mount
+sudo mkfs.ext4 /dev/vg_data/lv_storage
+sudo mount /dev/vg_data/lv_storage /mnt/storage
+
+-------------------------------------------------
+
+Swap Volumes
+
+Special volumes used by Linux as virtual memory.
+Helps the system when RAM is full.
+
+Example:
+
+sudo mkswap /dev/sda2
+sudo swapon /dev/sda2
+
+-------------------------------------------------------------------------------------
+
+Mounting Volumes
+
+A volume must be mounted to access its files. Mount points are directories where the volume’s filesystem appears.
+
+sudo mkdir /mnt/folderForMounting
+Sudo mount source destionation eg. sudo mount /dev/vg_data/lv_storage /mnt/data
