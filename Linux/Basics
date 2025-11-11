@@ -1,1 +1,118 @@
+Understanding Operating Systems (OS)
+
+An Operating System (OS) is the main software that manages all hardware and software on a computer. It acts as a bridge between the user and the
+computer hardware — controlling how applications use system resources like CPU, memory, and storage.
+
+💻 Types of Operating Systems
+1. Client Operating System
+
+Installed on personal devices like laptops, desktops, or smartphones.
+Designed for individual users.
+Examples: Windows 11, macOS, Ubuntu Desktop, Android
+Main focus: User interface, applications, and ease of use.
+
+2. Server Operating System
+
+Installed on powerful machines (servers) to provide services to multiple clients or users over a network.
+Designed for performance, security, and reliability.
+Examples: Windows Server, Ubuntu Server, Red Hat Enterprise Linux, CentOS
+Main focus: Managing multiple users, handling databases, web hosting, file sharing.
+
+-----------------------------------------------------------------------------------------------------------------
+
+How Linux Came Into Existence
+
+In 1991, a student named Linus Torvalds from Finland wanted a free and open-source alternative to UNIX.
+He created a small OS kernel and shared it online for collaboration.
+Developers around the world contributed, and this project became known as Linux.
+So, LINUS (person) → created LINUX (OS).
+
+Linus Torvalds (Student, 1991)
+           ↓
+Wanted free UNIX-like system
+           ↓
+Created Kernel (core of OS)
+           ↓
+Shared Online (Open Source)
+           ↓
+Community Contributions
+           ↓
+  LINUX Operating System
+
+
+Why Linux Became Popular:
+
+Free & Open Source
+Secure and Stable
+Runs on everything — from servers to Android phones.
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+Linux Setup
+
+Install Linux OS on your local system — as Linux is as secure as your blood!
+
+Ways to set up Linux:
+
+1. Virtual Box or Oracle VM – Make a virtual box of Oracle and install image of Linux (.iso file).
+2. Vagrant Tool – Vagrant can help using Linux virtually.
+3. WSL (Windows Subsystem for Linux) – Windows now gives Linux support also within Windows (included in Windows 10 and 11).
+4. Dual Boot – We can install Linux alongside Windows and choose at startup which OS to use.
+5. Cloud Setup – We can make our Linux run on cloud services like AWS, Azure, or GCP.
+
+✅ We will be going ahead with option (5)
+
+------------------------------------------------------------------------------------------------------------------
+
+Created linux setup on AWS ( created EC2 instance )
+
+commands used till here-
+
+echo, pwd, mkdir, touch, mv, cp, rm, rmdir, rm-r, rm-f, sudo, vim, apt-get update, apt-get upgrade, cat, systemclt, useradd, groupadd
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+Kernel Diagram
++--------------------------------------------+
+|            User Applications                |
+| (Browsers, Media Players, Editors, etc.)    |
++---------------------↑----------------------+
+                      |
+                      |  System Calls (API)
+                      ↓
++--------------------------------------------+
+|                 KERNEL                     |
+|  +--------------------------------------+  |
+|  |  Process Management                  |  |
+|  |  Memory Management                   |  |
+|  |  Device Drivers                      |  |
+|  |  File System Management              |  |
+|  |  System Security & Networking        |  |
+|  +--------------------------------------+  |
++--------------------------------------------+
+                      ↓
++--------------------------------------------+
+|              Hardware Layer                |
+| (CPU, RAM, Disk, Keyboard, Mouse, etc.)    |
++--------------------------------------------+
+
+⚙️ Explanation (in few lines)
+
+The Kernel is the core part of an operating system.
+It connects user applications to the hardware.
+It controls everything — CPU scheduling, memory allocation, file access, and device communication.
+You can think of it as the “engine” of your OS — hidden but always running.
+
+🌍 Real-world Use
+
+In Android phones, the Linux kernel manages apps, memory, and hardware (camera, Wi-Fi, battery).
+In servers, the kernel ensures smooth multitasking and security.
+In computers, it helps multiple programs run efficiently without crashing.
+
+
+
+
 
