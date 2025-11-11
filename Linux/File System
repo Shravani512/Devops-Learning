@@ -1,1 +1,110 @@
 
+
+
+
+| Directory   | Description                                                 | Important Files / Examples                                                                             |
+| ----------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| /           | Root directory — top of the file system hierarchy.          | Contains all other directories.                                                                        |
+| /bin        | Essential user command binaries.                            | `ls`, `cp`, `mv`, `rm`, `cat`, `echo`, `grep`                                                          |
+| /boot       | Boot loader files and Linux kernel.                         | `vmlinuz`, `initrd.img`, `/boot/grub/grub.cfg`                                                         |
+| /dev        | Device files that represent hardware.                       | `/dev/sda` (hard disk), `/dev/tty` (terminal), `/dev/null`                                             |
+| /etc        | System configuration files.                                 | `passwd`, `group`, `shadow`, `fstab`, `hostname`, `hosts`, `resolv.conf`, `sudoers`, `ssh/sshd_config` |
+| /home       | Home directories for all normal users.                      | `/home/user1`, `/home/user2`                                                                           |
+| /lib        | Shared libraries required by `/bin` and `/sbin` binaries.   | `libc.so`, `ld-linux.so`                                                                               |
+| /lib64      | 64-bit shared libraries (on 64-bit systems).                | System dynamic linker files.                                                                           |
+| /media      | Mount point for removable media.                            | `/media/usb`, `/media/cdrom`                                                                           |
+| /mnt        | Temporary mount point for external drives.                  | `/mnt/data`, `/mnt/test`                                                                               |
+| /opt        | Optional or third-party software packages.                  | `/opt/google/chrome`, `/opt/tomcat`                                                                    |
+| /proc       | Virtual filesystem providing process and kernel info.       | `/proc/cpuinfo`, `/proc/meminfo`, `/proc/[PID]/status`                                                 |
+| /root       | Home directory for the **root (superuser)** account.        | Root user's personal files and configs.                                                                |
+| /run        | Runtime information for system processes.                   | `/run/utmp`, `/run/systemd/`                                                                           |
+| /sbin       | System administration binaries (for root).                  | `ifconfig`, `fdisk`, `reboot`, `mount`, `shutdown`                                                     |
+| /srv        | Data for system services.                                   | `/srv/www` (web server), `/srv/ftp`                                                                    |
+| /sys        | Virtual filesystem showing kernel and hardware details.     | `/sys/class/net`, `/sys/block`                                                                         |
+| /tmp        | Temporary files created by programs.                        | `/tmp/test.txt`, deleted on reboot.                                                                    |
+| /usr        | Secondary hierarchy for user programs, libraries, and docs. | `/usr/bin`, `/usr/lib`, `/usr/share`, `/usr/local`                                                     |
+| /var        | Variable data — logs, cache, spool files.                   | `/var/log/syslog`, `/var/mail`, `/var/cache`, `/var/spool`, `/var/www/html`                            |
+| /lost+found | Used to recover files after unexpected shutdowns.           | Auto-created by file system tools.                                                                     |
+
+---------------------------------------------------------------------------------------------------------------------------
+
+├── bin/                → Essential user commands (ls, cp, mv, cat)
+├── boot/               → Boot loader & kernel files (vmlinuz, grub/)
+├── dev/                → Device files (hard disks, USBs, terminals)
+├── etc/                → System configuration files
+│   ├── passwd          → User account details
+│   ├── group           → Group information
+│   ├── shadow          → Encrypted user passwords
+│   ├── fstab           → Disk partitions & mount points
+│   ├── hostname        → System name
+│   ├── hosts           → Local host-to-IP mappings
+│   ├── sudoers         → Admin (sudo) privileges
+│   └── ssh/sshd_config → SSH server configuration
+├── home/               → User home directories
+│   ├── user1/
+│   └── user2/
+├── lib/                → Shared libraries for /bin and /sbin
+├── lib64/              → 64-bit libraries
+├── media/              → Mount point for removable drives (USB/CD)
+├── mnt/                → Temporary mount point for manual mounts
+├── opt/                → Optional / third-party software (e.g., chrome, tomcat)
+├── proc/               → Virtual filesystem (processes & kernel info)
+│   ├── cpuinfo
+│   ├── meminfo
+│   └── [PID]/          → Info about each process
+├── root/               → Home directory of the root user
+├── run/                → Runtime process info (systemd, PID files)
+├── sbin/               → System binaries (for admin use)
+├── srv/                → Service data (web, ftp)
+├── sys/                → Kernel and device info
+├── tmp/                → Temporary files (cleared on reboot)
+├── usr/                → User programs, docs, libraries
+│   ├── bin/            → Non-essential user commands
+│   ├── lib/            → Libraries for /usr/bin
+│   ├── local/          → Locally installed software
+│   └── share/          → Shared resources (icons, docs)
+├── var/                → Variable data files
+│   ├── log/            → Log files (syslog, auth.log, dmesg)
+│   ├── mail/           → User mailboxes
+│   ├── cache/          → Cached data
+│   ├── spool/          → Print/mail spool
+│   └── www/            → Web server files (HTML)
+└── lost+found/         → Recovered files after crashes
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+| File                   | Purpose                                                        |
+| ---------------------- | -------------------------------------------------------------- |
+| `/etc/passwd`          | Stores basic user info (username, UID, shell, home directory). |
+| `/etc/group`           | Stores group info.                                             |
+| `/etc/shadow`          | Stores encrypted passwords.                                    |
+| `/etc/fstab`           | Defines disk partitions and mount points.                      |
+| `/etc/hostname`        | Contains system hostname.                                      |
+| `/etc/hosts`           | Maps hostnames to IPs (local DNS).                             |
+| `/etc/sudoers`         | Defines sudo (admin) privileges.                               |
+| `/etc/ssh/sshd_config` | SSH server configuration.                                      |
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Quick Recap
+
+👤 Users → /etc/passwd
+
+👥 Groups → /etc/group
+
+🔒 Passwords → /etc/shadow
+
+🏠 User Homes → /home/username
+
+👑 Root Home → /root
+
+📜 Logs → /var/log/
+
+⚙️ Configs → /etc/
+
+💽 Devices → /dev/
+
+🌐 Network Services → /srv/
+
+🔁 Boot Files → /boot/
