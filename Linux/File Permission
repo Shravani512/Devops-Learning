@@ -1,0 +1,37 @@
+Linux File Permission Table
+
+In Linux, each file/directory has permissions for Owner (User), Group, and Others. Permissions are of three types:
+
+Permission	Symbol	Description
+
+Read	r	   ->  Can read the file / list directory contents
+Write	w    ->  Can modify the file / add/remove files in directory
+Execute	x	 ->  Can execute the file / access directory
+
+commands:
+
+chown user file
+chgrp group file
+ls -l      -> Shows permissions in symbolic form
+ls -la     -> Includes hidden files
+
+------------------------------------------------------------------------------------------------
+
+Truth table for file permission 
+
+     r	 w	 x	Description
+0	   0	 0	 0	No permission
+1	   0	 0	 1	Execute only
+2	   0	 1	 0	Write only
+3	   0	 1	 1	Write + Execute
+4	   1	 0	 0	Read only
+5    1	 0	 1	Read + Execute
+6	   1	 1	 0	Read + Write
+7	   1	 1	 1  Read + Write + Execute 
+
+Some examples:
+chmod 754 file.txt   ->   Set owner=rwx, group=r-x, others=r--
+chmod 600 file.txt   ->   Set owner=rw, group=none, others=none
+chmod 777 file.txt   ->   Full permissions for everyone
+
+
