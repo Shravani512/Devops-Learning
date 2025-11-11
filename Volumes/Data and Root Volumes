@@ -1,0 +1,34 @@
+Root Volumes
+
+Definition:
+
+The root volume is the primary disk attached to a system that contains the operating system (OS) and boot files.
+It is required for the instance to boot.
+
+Characteristics: 
+
+Usually mounted at / (root directory)
+Automatically attached when the instance is launched
+Typically has the OS pre-installed in cloud images (AMI in AWS)
+
+-------------------------------------------------------------------------------------------
+
+Data Volumes
+
+Definition:
+
+Data volumes are additional disks attached to an instance for storing user data, application data, databases, logs, etc.
+They are not required for booting and can be attached or detached dynamically.
+
+Characteristics:
+
+Mounted anywhere (e.g., /mnt/data1)
+Can be standalone disks (physical volumes) or used in LVM for logical volumes
+Can be added, removed, resized, or moved across instances
+
+-----------------------------------------------------------------------------------------
+
+naming:
+
+Root volume   →   system disk, required to boot (/dev/xvda, /dev/xvdb. /dev/xvdc, etc)
+Data volumes  →   additional storage, flexible, attachable/detachable (/dev/xvdf, /dev/xvdg, /dev/xvdh, etc)
