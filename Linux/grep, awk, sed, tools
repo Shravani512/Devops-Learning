@@ -1,0 +1,105 @@
+
+grep (Global Regular Expression Print)
+
+Purpose: Search for a pattern in a file or input and print matching lines.
+
+Syntax:
+
+grep [options] "pattern" filename
+
+
+Common Options:
+
+1   -i → Ignore case
+2   -v → Invert match (show lines that don’t match)
+3   -r → Recursive search in directories
+4   -n → Show line numbers
+
+Examples:
+
+grep "error" logfile.txt           Find lines containing "error"
+grep -i "error" logfile.txt        Case-insensitive search
+grep -v "success" logfile.txt      Show lines that do NOT contain "success"
+grep -n "timeout" logfile.txt      Show line numbers of matches
+
+-----------------------------------------------------------------------------------------------------
+
+awk (Pattern Scanning and Processing Language)
+
+Purpose: Process text line by line and perform actions based on patterns. Great for column-based processing.
+
+Syntax:
+
+awk 'pattern {action}' filename
+
+
+Special variables:
+
+$0 → Entire line
+$1, $2, ... → 1st, 2nd, etc. column
+
+Examples:
+
+awk '{print $1}' file.txt                    Print 1st column of each line
+awk '/error/ {print $2, $3}' file.txt        If line contains "error", print 2nd & 3rd columns
+awk '{sum += $2} END {print sum}' file.txt   Sum 2nd column
+
+
+Practical use: Quickly calculate total disk usage from df -h output:
+
+df -h | awk '{print $1, $5}'
+
+Prints the filesystem name and usage percentage.
+
+-----------------------------------------------------------------------------------------------------------------
+
+sed (Stream Editor)
+
+Purpose: Perform text transformations on a file or input stream, like substitute, delete, insert, replace.
+
+Syntax:
+
+sed 'command' filename
+
+Common Commands:
+
+s/pattern/replacement/ → Substitute
+d → Delete line
+p → Print line
+
+Examples:
+
+sed 's/old/new/' file.txt          Replace first occurrence of "old" with "new" in each line
+sed 's/old/new/g' file.txt         Replace all occurrences in each line
+sed '/error/d' file.txt            Delete lines containing "error"
+sed -n '2,5p' file.txt             Print only lines 2 to 5
+
+
+Practical use: Replace all tabs with spaces in a file:
+
+sed 's/\t/    /g' file.txt
+
+-----------------------------------------------------------------------------------------------------------
+
+Quick Comparison:
+
+grep	->  Search for patterns	Lines
+awk	  ->  Extract/compute columns, pattern processing	Fields/Columns
+sed	  ->  Transform/modify text	Lines
+
+-----------------------------------------------------------------------------------------------------------
+
+Commands for tools:
+
+nslookup	         ->       Queries DNS to get IP or domain info.
+                            command: nslookup example.com
+traceroute	       ->       Shows the path packets take to reach a host.
+                            command: traceroute example.com
+dig	               ->       Performs DNS lookup with detailed info.
+                            command: dig example.com
+wget	             ->       Downloads files from the web via HTTP/HTTPS.
+                            command: wget https://example.com/file.txt
+curl	             ->       Transfers data to/from a server (HTTP, FTP, etc.).
+                            command: curl -O https://example.com/file.txt
+jq	               ->       Parses and formats JSON data in the command line.
+                            command: `cat file.json
