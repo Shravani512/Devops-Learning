@@ -10,7 +10,6 @@ press i for insert mode
      |
 esc :wq enter (save and close file) 
 
-
 -----------------------------------------------------------------------------------------------------------
 
 Assignment2 - Created HTML webpage and host on nginx
