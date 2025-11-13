@@ -1,4 +1,4 @@
-Assignment5 : Write a shell command to take backup for a folder every min
+Assignment5 : Write a shell command to take backup for a folder every min and asve it on aws S3 
 
 #!/bin/bash
 
@@ -13,9 +13,9 @@ echo "Backup taking start...."
 
 zip -r $dest/backup-$timestamp.zip $src > /dev/null
 
-echo "backup done!"
+aws s3 sync $dest s3://tws-bucket-d
 
-ubuntu@ip-172-31-44-187:~/scripting$
+echo "backup done!"
 
 ----------------------------------------------------------------------
 
