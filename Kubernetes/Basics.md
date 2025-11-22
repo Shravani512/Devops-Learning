@@ -40,7 +40,7 @@ Ensuring applications scale up/down based on load and stay available even if nod
 
 # Creating a Kubernetes cluster
 
-1. kubeadm
+1. ## kubeadm
 A tool used to create a Kubernetes cluster manually on real or virtual machines. Mostly for learning or production on bare-metal.
 
 2. minikube
