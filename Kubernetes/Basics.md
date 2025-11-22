@@ -40,13 +40,13 @@ Ensuring applications scale up/down based on load and stay available even if nod
 
 # Creating a Kubernetes cluster
 
-- 1. kubeadm
+1. kubeadm
 A tool used to create a Kubernetes cluster manually on real or virtual machines. Mostly for learning or production on bare-metal.
 
-- 2. minikube
+2. minikube
 A lightweight tool to run a single-node Kubernetes cluster on your local machine (good for beginners).
 
-- 3. KinD (Kubernetes in Docker) ⭐
+3. KinD (Kubernetes in Docker) ⭐
 Runs a Kubernetes cluster inside Docker containers.
 It is mostly used for:
 Testing Kubernetes
@@ -54,14 +54,14 @@ CI/CD pipelines
 Learning quickly without heavy setup
 (That star in your image likely means recommended for practice.)
 
-- 4. AWS EKS / Azure AKS / GCP GKE
+4. AWS EKS / Azure AKS / GCP GKE
 These are managed Kubernetes services provided by cloud vendors.
 You don’t create the control plane — the cloud provider manages it.
 
-- 5. Killercoda
+5. Killercoda
 An online platform with free interactive Kubernetes labs running in the browser.
 
-- 6. Rancher
+6. Rancher
 A Kubernetes management platform used for deploying, scaling, and managing multiple clusters.
 
 ### KinD (Will start with this as of now)
