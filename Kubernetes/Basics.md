@@ -1,6 +1,10 @@
 
 # What is Kubernetes:
 Kubernetes is an open-source platform that automates the deployment, scaling, and management of containerized applications.
+A Kubernetes cluster is a group of machines (nodes) that work together to run containerized applications.
+
+- A Control Plane (Master) → components that decide, manage, and control the cluster.
+= Worker Nodes → machines that actually run your pods/containers.
 
 ## Kubernetes is mainly made for two core purposes:
 
@@ -21,6 +25,7 @@ Ensuring applications scale up/down based on load and stay available even if nod
 - etcd – A distributed key-value store holding the entire cluster state.
 - Worker Nodes – Machines where Pods and containers actually run.
 - Kubelet – Node agent responsible for running and managing Pods as instructed by the control plane.
+- CNI is the networking system in Kubernetes that gives Pods IPs and ensures communication across the whole cluster.
 
 ## Step-Wise Explanation
 - kubectl is the CLI tool used to send all requests to the Kubernetes API Server.
@@ -32,4 +37,32 @@ Ensuring applications scale up/down based on load and stay available even if nod
 - On each worker node, the Kubelet runs as an agent to ensure containers are running exactly as instructed by the control plane.
 - The kubelet communicates with the container runtime to create, run, and monitor containers.
 - In short: kubectl → API Server → Scheduler/Controller Manager/etcd → Worker Node → Kubelet → Containers.
+
+# Creating a Kubernetes cluster
+
+- 1. kubeadm
+A tool used to create a Kubernetes cluster manually on real or virtual machines. Mostly for learning or production on bare-metal.
+
+- 2. minikube
+A lightweight tool to run a single-node Kubernetes cluster on your local machine (good for beginners).
+
+- 3. KinD (Kubernetes in Docker) ⭐
+Runs a Kubernetes cluster inside Docker containers.
+It is mostly used for:
+Testing Kubernetes
+CI/CD pipelines
+Learning quickly without heavy setup
+(That star in your image likely means recommended for practice.)
+
+- 4. AWS EKS / Azure AKS / GCP GKE
+These are managed Kubernetes services provided by cloud vendors.
+You don’t create the control plane — the cloud provider manages it.
+
+- 5. Killercoda
+An online platform with free interactive Kubernetes labs running in the browser.
+
+- 6. Rancher
+A Kubernetes management platform used for deploying, scaling, and managing multiple clusters.
+
+### KinD (Will start with this as of now)
 
