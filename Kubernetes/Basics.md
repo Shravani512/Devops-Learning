@@ -10,6 +10,10 @@ Automatically managing containers—deploying them, restarting them, scaling the
 - Scaling & High Availability
 Ensuring applications scale up/down based on load and stay available even if nodes fail.
 
+## Kubernetes Architecture Diagram
+
+![image alt](https://github.com/Shravani512/Devops-Learning/blob/13efc4843770b63491a81465f6d6e3fc6c61c52b/Kubernetes%20Architecture%20Diagram.jpg)
+
 ## Step-Wise Explanation
 - kubectl is the CLI tool used to send all requests to the Kubernetes API Server.
 - The API Server acts as the communication hub and receives/validates every request.
