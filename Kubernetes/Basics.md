@@ -14,6 +14,14 @@ Ensuring applications scale up/down based on load and stay available even if nod
 
 ![image alt](https://github.com/Shravani512/Devops-Learning/blob/0d3286df5d4e915614a3f0770efbf1d8cc2bd199/Images/Kubernetes%20Architecture%20Diagram.jpg)
 
+- kubectl – CLI tool used to send commands to the Kubernetes API Server.
+- API Server – The front door of Kubernetes; processes all incoming requests.
+- Scheduler – Decides which worker node will run each Pod.
+- Controller Manager – Ensures the actual cluster state matches the desired state.
+- etcd – A distributed key-value store holding the entire cluster state.
+- Worker Nodes – Machines where Pods and containers actually run.
+- Kubelet – Node agent responsible for running and managing Pods as instructed by the control plane.
+
 ## Step-Wise Explanation
 - kubectl is the CLI tool used to send all requests to the Kubernetes API Server.
 - The API Server acts as the communication hub and receives/validates every request.
