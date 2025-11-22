@@ -1,8 +1,8 @@
 
-#What is Kubernetes:
+# What is Kubernetes:
 Kubernetes is an open-source platform that automates the deployment, scaling, and management of containerized applications.
 
-##Kubernetes is mainly made for two core purposes:
+## Kubernetes is mainly made for two core purposes:
 
 - Container Orchestration
 Automatically managing containers—deploying them, restarting them, scaling them, and ensuring they run reliably.
@@ -10,7 +10,7 @@ Automatically managing containers—deploying them, restarting them, scaling the
 - Scaling & High Availability
 Ensuring applications scale up/down based on load and stay available even if nodes fail.
 
-##Step-Wise Explanation
+## Step-Wise Explanation
 - kubectl is the CLI tool used to send all requests to the Kubernetes API Server.
 - The API Server acts as the communication hub and receives/validates every request.
 - The Scheduler decides on which worker node a new Pod should run.
