@@ -4,10 +4,10 @@ Kubernetes is an open-source platform that automates the deployment, scaling, an
 
 ## Kubernetes is mainly made for two core purposes:
 
-- Container Orchestration
+### Container Orchestration
 Automatically managing containers—deploying them, restarting them, scaling them, and ensuring they run reliably.
 
-- Scaling & High Availability
+### Scaling & High Availability
 Ensuring applications scale up/down based on load and stay available even if nodes fail.
 
 ## Kubernetes Architecture Diagram
