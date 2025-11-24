@@ -105,7 +105,7 @@ One container becomes Control Plane
 Other containers become Worker Nodes
 
 # Conceptual structure of Kubernetes structure
-
+```
 Kubernetes-Cluster/
 │
 ├── Nodes/
@@ -138,6 +138,7 @@ Kubernetes-Cluster/
     ├── StorageClasses
     ├── PersistentVolumes
     └── CRDs (Custom Resource Definitions)
+```
     
 ## commands used-
 - kind create cluster --config congif.yml --name clusterNameWeWant
