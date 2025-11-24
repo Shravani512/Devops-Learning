@@ -104,6 +104,25 @@ One Docker container = one Kubernetes node
 One container becomes Control Plane
 Other containers become Worker Nodes
 
+### Define Namespace
+A namespace is a logical partition inside a Kubernetes cluster used to organize resources.
+It helps separate projects, teams, or environments so they don’t interfere with each other.
+
+### Define Pod-
+A Pod is a small wrapper around your container that gives it an IP, storage, and runs it on a Kubernetes node. Each pod runs one single container ideally.
+
+# Why do we create Namespaces?
+
+1. Namespaces in Kubernetes exist for organization, separation, and control.
+- Example: each one will have seperate namespace (dev namespace → Developers test new features, qa namespace → Testers run test environments, prod namespace → Real users use the application
+2. To avoid name conflicts
+- Two teams may create the same object name, like a Pod called nginx.(dev/nginx, prod/nginx)
+3. To apply resource limits
+- You can give each namespace a budget of CPU and memory.(dev → max 4 CPUs, prod → max 20 CPUs)
+4. To apply access control (RBAC)
+- You can restrict which team can access what.(Devs → access only dev namespace, Ops → access all namespaces, Interns → read-only access to training namespace)
+5. To keep system components separate(kube-system → system components, default → your apps, kube-public → public info)
+
 # Conceptual structure of Kubernetes structure
 ```
 Kubernetes-Cluster/
@@ -146,4 +165,45 @@ Kubernetes-Cluster/
 - kubectl cluster info
 - Command- kubectl config set-context --cluster clusterName --current
 - kubectl get nodes
-- kubectl get-contexts
+- kubectl get contexts
+- kubectl get namespace
+
+Namespace.yml
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-namespace
+```
+Pod.yml
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    app: demo
+spec:
+  containers:
+    - name: app-container
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+```
+
+# command- kubectl apply -f namespace.yaml
+# kubectl get namespaces
+
+In a Kubernetes cluster, there are multiple worker nodes and multiple namespaces.
+Each namespace contains many Kubernetes objects like pods, deployments, and services.
+When an application needs to run, the scheduler chooses a worker node based on available resources.
+On that chosen worker node, a Pod is created, and inside that Pod, containers run the application.
+
+- All nodes connect to the same control plane.
+- All nodes read the same list of namespaces.
+- All nodes read the same deployments, same services, same configs, etc.
+- That’s why namespaces “appear shared” — because every node talks to the same API Server which is on control plane(i.e master node)
+
+
+
+
