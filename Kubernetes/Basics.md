@@ -86,3 +86,63 @@ A Kubernetes management platform used for deploying, scaling, and managing multi
 ##### **Command- docker exec -it container_id bash**
 ##### **ls**
 ##### **kubectl cluster info**
+- Now if multiple clusters are there then for which cluster will the kubectl direct? So, will have to set-context for the kubectl
+##### **Command- kubectl config set-context --cluster clusterName --current**
+##### **kubectl get nodes**
+##### **kubectl get-contexts**
+
+## Kubernetes Cluster-
+
+**A cluster means the full group together:**
+- Control Plane
+- one or more Worker Nodes
+
+👉 This WHOLE group is called ONE Kubernetes cluster.
+
+**KinD uses Docker containers to create nodes.**
+One Docker container = one Kubernetes node
+One container becomes Control Plane
+Other containers become Worker Nodes
+
+# Conceptual structure of Kubernetes structure
+
+Kubernetes-Cluster/
+│
+├── Nodes/
+│   ├── control-plane
+│   ├── worker-node-1
+│   ├── worker-node-2
+│   └── worker-node-3
+│
+├── Namespaces/
+│   ├── default/
+│   │   ├── Pods/
+│   │   ├── Deployments/
+│   │   ├── Services/
+│   │   └── ConfigMaps/
+│   │
+│   ├── kube-system/
+│   │   ├── CoreDNS-pods/
+│   │   ├── Kube-proxy-pods/
+│   │   ├── Control-plane-components/
+│   │   └── Metrics-server/
+│   │
+│   ├── kube-public/
+│   └── your-custom-namespace/
+│       ├── Pods/
+│       ├── Deployments/
+│       ├── Services/
+│       └── Secrets/
+│
+└── Cluster-Wide-Objects/
+    ├── StorageClasses
+    ├── PersistentVolumes
+    └── CRDs (Custom Resource Definitions)
+    
+## commands used-
+- kind create cluster --config congif.yml --name clusterNameWeWant
+- Command- docker exec -it container_id bash
+- kubectl cluster info
+- Command- kubectl config set-context --cluster clusterName --current
+- kubectl get nodes
+- kubectl get-contexts
