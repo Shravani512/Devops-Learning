@@ -72,8 +72,8 @@ A Kubernetes management platform used for deploying, scaling, and managing multi
 - Create EC2 instance for kind cluster
 - install docker
 - install kind
-- install kindctl
-  **Now everything in K8S is a manifest file i.e a config file (written in YML)**
+- install kubectl
+  ##### **Now everything in K8S is a manifest file i.e a config file (written in YML)**
 - create config file(in .yml)
 - create containers in cluster
 -  create config.yml (kind= cluster) which have 1 control plane and 3 worker node)
