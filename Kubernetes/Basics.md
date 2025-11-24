@@ -167,6 +167,10 @@ Kubernetes-Cluster/
 - kubectl get nodes
 - kubectl get contexts
 - kubectl get namespace
+- kubectl apply -f namespace.yaml
+- kubectl apply -f pod.yaml
+- kubectl get pods
+- kubectl delete pod podName -n namespaceName
 
 Namespace.yml
 ```
@@ -190,8 +194,6 @@ spec:
       ports:
         - containerPort: 80
 ```
-
-# command- kubectl apply -f namespace.yaml
 # kubectl get namespaces
 
 In a Kubernetes cluster, there are multiple worker nodes and multiple namespaces.
@@ -203,6 +205,9 @@ On that chosen worker node, a Pod is created, and inside that Pod, containers ru
 - All nodes read the same list of namespaces.
 - All nodes read the same deployments, same services, same configs, etc.
 - That’s why namespaces “appear shared” — because every node talks to the same API Server which is on control plane(i.e master node)
+
+The Scheduler assigns the Pod to a specific worker node, and the kubelet running on that worker node is responsible for creating and starting the container(s) inside that Pod.
+Scheduler picks the node → Kubelet creates Pod → Pod creates container(s) → Application runs
 
 
 
