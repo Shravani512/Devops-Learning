@@ -73,7 +73,7 @@ A Kubernetes management platform used for deploying, scaling, and managing multi
 - install docker
 - install kind
 - install kindctl
-### Now everything in K8S is a manifest file i.e a config file (written in YML)
+##### Now everything in K8S is a manifest file i.e a config file (written in YML)
 - create config file(in .yml)
 - create containers in cluster
 -  create config.yml (kind= cluster) which have 1 control plane and 3 worker node)
