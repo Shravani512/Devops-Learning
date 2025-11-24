@@ -73,23 +73,23 @@ A Kubernetes management platform used for deploying, scaling, and managing multi
 - install docker
 - install kind
 - install kubectl
-##### **Now everything in K8S is a manifest file i.e a config file (written in YML)**
+**Now everything in K8S is a manifest file i.e a config file (written in YML)**
 - create config file(in .yml)
 - create containers in cluster
 -  create config.yml (kind= cluster) which have 1 control plane and 3 worker node)
 -  now will create cluster using this config file command-
-##### **kind create cluster --config congif.yml --name clusterNameWeWant**
+ *kind create cluster --config congif.yml --name clusterNameWeWant**
 -  cluster will be created according to the configuration mentioned in config.yml file
 -  kubectl get nodes - control plane and worker nodes will be shown
 -  kubernetes in docker kind! so now containers for control and worker node will be created (check docker ps container_id wil be shown)
 -  Now if we execute the container we can see the processess in the container for worker and control node
-##### **Command- docker exec -it container_id bash**
-##### **ls**
-##### **kubectl cluster info**
+**Commands used**
+- ommand- docker exec -it container_id bash
+- kubectl cluster info
 - Now if multiple clusters are there then for which cluster will the kubectl direct? So, will have to set-context for the kubectl
-##### **Command- kubectl config set-context --cluster clusterName --current**
-##### **kubectl get nodes**
-##### **kubectl get-contexts**
+- Command- kubectl config set-context --cluster clusterName --current
+- kubectl get nodes 
+- kubectl get-contexts
 
 ## Kubernetes Cluster-
 
@@ -171,6 +171,7 @@ Kubernetes-Cluster/
 - kubectl apply -f pod.yaml
 - kubectl get pods
 - kubectl delete pod podName -n namespaceName
+- kubectl get namespaces
 
 Namespace.yml
 ```
@@ -194,8 +195,6 @@ spec:
       ports:
         - containerPort: 80
 ```
-# kubectl get namespaces
-
 In a Kubernetes cluster, there are multiple worker nodes and multiple namespaces.
 Each namespace contains many Kubernetes objects like pods, deployments, and services.
 When an application needs to run, the scheduler chooses a worker node based on available resources.
