@@ -1,4 +1,9 @@
-
+### Topics:
+- Introduction
+- Kubernetes architecture and components
+- Namespace
+- Pods
+  
 # What is Kubernetes:
 Kubernetes is an open-source platform that automates the deployment, scaling, and management of containerized applications.
 A Kubernetes cluster is a group of machines (nodes) that work together to run containerized applications.
