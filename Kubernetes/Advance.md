@@ -53,5 +53,21 @@ Now if we delete any pod new pod will be automatically created and desired numbe
 5. kubectl detele pod deploymentName pod_id -n namespaceName
 We can scale up and scale down the number of pods in deployment we want
 6. kubectl scale deployment deploymentName -n namespaceName --replicas=10
+   We can create max 5000 kubernetes nodes and max 110 pods inside each node
 
 #### Rolling updates in kubernetes
+A Rolling Update in Kubernetes is a strategy to update an application (pods) gradually without downtime. Instead of stopping all old pods at once, Kubernetes replaces them one by one (or in small batches) with new versions. This ensures your application remains available during updates.
+
+##### How Rolling Update Works
+Suppose you have a Deployment with 3 replicas of an app:
+You update the Deployment to use a new image version (e.g., nginx:1.21 → nginx:1.23).
+
+Kubernetes starts the update:
+Creates a new pod with the updated version.
+Once the new pod is running and ready, it terminates one old pod.
+This process repeats until all old pods are replaced.
+
+#### Commands
+- kubectl rollout status deployment/my-app
+- kubectl rollout undo deployment/my-app
+ 
