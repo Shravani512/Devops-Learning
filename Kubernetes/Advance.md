@@ -96,8 +96,9 @@ spec:
       targetPort: 80     # Container port (app listens here)
 ```
 
-Service Port = where clients enter.
-Target Port = where your app is actually running inside the container.
+#### Service Port = where clients enter.
+#### Target Port = where your app is actually running inside the container.
+
 ![url_link](https://github.com/Shravani512/Devops-Learning/blob/1b70a6db2aea0a2cde8a9ad30284a97efde5b1b5/Images/port-matching2.png)
 ## nginx->pod->deployment->service->cluster->EC2
 
