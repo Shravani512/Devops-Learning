@@ -72,4 +72,10 @@ This process repeats until all old pods are replaced.
 - kubectl rollout undo deployment/my-app
 
 ![link_url](https://github.com/Shravani512/Devops-Learning/blob/a551f37920c9936741de635023a06317b1294598/Images/kubernetes-flow.png)
+
+When you run a command through kubectl, it communicates with the API Server, which is the central brain of Kubernetes. The API Server receives the request and updates the cluster state. If your command creates a Deployment or Pod, the API Server sends this information to the Scheduler, whose job is to decide which Node should run that Pod. Once scheduled, the chosen Node’s kubelet receives instructions to actually create and run the Pod. Inside the Pod, a container runs your application. To access this application, clients or other Pods do not talk to the Pod directly—instead, they talk to a Service, which provides a stable name and IP. The Service forwards incoming traffic to the correct Pod(s), even if Pod IPs keep changing. So the complete traffic flow is: Client → Service → Pod → Container, while the control flow for creating Pods is: kubectl → API Server → Scheduler → kubelet → Pod.
+
+### Service:
+A Service in Kubernetes is a logical abstraction that defines a way to access one or more pods. Pods in Kubernetes are ephemeral—they can be created and destroyed dynamically—so you need a stable way to reach them. That’s where a Service comes in.
+
  
