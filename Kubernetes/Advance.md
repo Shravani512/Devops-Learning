@@ -70,4 +70,6 @@ This process repeats until all old pods are replaced.
 #### Commands
 - kubectl rollout status deployment/my-app
 - kubectl rollout undo deployment/my-app
+
+![link_url](https://github.com/Shravani512/Devops-Learning/blob/a551f37920c9936741de635023a06317b1294598/Images/kubernetes-flow.png)
  
