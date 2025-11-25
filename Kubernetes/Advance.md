@@ -98,10 +98,16 @@ spec:
 
 Service Port = where clients enter.
 Target Port = where your app is actually running inside the container.
+![url_link](https://github.com/Shravani512/Devops-Learning/blob/3aa05d1634dfaf7b75d5b3452875c28de8161f86/Images/port-matching.png)
+##nginx->pod->deployment->service->cluster->EC2
+
+now the cluster is also made with docker so it is also in container ans we need to match its port
+so will first forward the req to the cluster which is in docker container using below commands and then cluster will match port with service and then service will match port with deployment.
+port matching from cluster to service and service to pod is done in service yml file so we only first need to forward client req to the cluster container port
 
 ##### Commands:
 1. kubectl port-forward svc/serviceName -n namespaceName 82:82 --address=0.0.0.0
 2. if above not working then sudo -E kubectl port-forward svc/serviceName -n namespaceName 82:82 --address=0.0.0.0
 3. open your ec2 port 82 and now your app will run on the public ip inside a kubernetes cluster and now it is sclable!
-4. 
+
  
