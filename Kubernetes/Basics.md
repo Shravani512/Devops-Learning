@@ -169,7 +169,8 @@ Kubernetes-Cluster/
 - kubectl get namespace
 - kubectl apply -f namespace.yaml
 - kubectl apply -f pod.yaml
-- kubectl get pods
+- kubectl get pods (pods in default namespace)
+- kubectl get pods -n namespceName (pods in given namespace)
 - kubectl delete pod podName -n namespaceName
 - kubectl get namespaces
 
@@ -186,6 +187,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: my-pod
+  namespace: namespaceName
   labels:
     app: demo
 spec:
@@ -211,6 +213,7 @@ Kubernetes Execution lifecycle
 - Scheduler updates the pod details → “run this Pod on worker-node-1”
 - Now kubelet on that worker node takes over
 - kubelet pulls the image, creates the container, and starts it inside the Pod
+- Now whatever application is already packaged inside the Docker image will automatically run, because the image contains the app code, its libraries, runtime, and the startup command.
 
 
 
