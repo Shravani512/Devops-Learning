@@ -99,7 +99,7 @@ spec:
 Service Port = where clients enter.
 Target Port = where your app is actually running inside the container.
 ![url_link](https://github.com/Shravani512/Devops-Learning/blob/3aa05d1634dfaf7b75d5b3452875c28de8161f86/Images/port-matching.png)
-##nginx->pod->deployment->service->cluster->EC2
+## nginx->pod->deployment->service->cluster->EC2
 
 now the cluster is also made with docker so it is also in container ans we need to match its port
 so will first forward the req to the cluster which is in docker container using below commands and then cluster will match port with service and then service will match port with deployment.
