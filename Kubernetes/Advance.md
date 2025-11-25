@@ -78,4 +78,30 @@ When you run a command through kubectl, it communicates with the API Server, whi
 ### Service:
 A Service in Kubernetes is a logical abstraction that defines a way to access one or more pods. Pods in Kubernetes are ephemeral—they can be created and destroyed dynamically—so you need a stable way to reach them. That’s where a Service comes in.
 
+![link_url](https://github.com/Shravani512/Devops-Learning/blob/3ade41c43bc460c9e12fbee77894f05dc939f6cf/Images/Service.png)
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-service
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    app: my-app          # Must match pod label
+  ports:
+    - protocol: TCP
+      port: 82           # Service entry port (clients use this)
+      targetPort: 80     # Container port (app listens here)
+```
+
+Service Port = where clients enter.
+Target Port = where your app is actually running inside the container.
+
+##### Commands:
+1. kubectl port-forward svc/serviceName -n namespaceName 82:82 --address=0.0.0.0
+2. if above not working then sudo -E kubectl port-forward svc/serviceName -n namespaceName 82:82 --address=0.0.0.0
+3. open your ec2 port 82 and now your app will run on the public ip inside a kubernetes cluster and now it is sclable!
+4. 
  
