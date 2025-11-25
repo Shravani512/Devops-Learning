@@ -200,13 +200,18 @@ Each namespace contains many Kubernetes objects like pods, deployments, and serv
 When an application needs to run, the scheduler chooses a worker node based on available resources.
 On that chosen worker node, a Pod is created, and inside that Pod, containers run the application.
 
-- All nodes connect to the same control plane.
+Kubernetes Execution lifecycle
+- All nodes are connected to the same control plane.
 - All nodes read the same list of namespaces.
 - All nodes read the same deployments, same services, same configs, etc.
 - That’s why namespaces “appear shared” — because every node talks to the same API Server which is on control plane(i.e master node)
+- API Server stores the object (Deployment, Pod, Service)
+- Scheduler checks for a pod that has NO node assigned
+- Scheduler selects a worker node
+- Scheduler updates the pod details → “run this Pod on worker-node-1”
+- Now kubelet on that worker node takes over
+- kubelet pulls the image, creates the container, and starts it inside the Pod
 
-The Scheduler assigns the Pod to a specific worker node, and the kubelet running on that worker node is responsible for creating and starting the container(s) inside that Pod.
-Scheduler picks the node → Kubelet creates Pod → Pod creates container(s) → Application runs
 
 
 
