@@ -2,7 +2,6 @@
 - Deployment/ ReplicaSet/ StatefulSets
 - Services
 - Ingress
-- Secrets and ConfigMaps
 
 ## What is a Deployment in Kubernetes?
 
@@ -110,4 +109,5 @@ port matching from cluster to service and service to pod is done in service yml 
 2. if above not working then sudo -E kubectl port-forward svc/serviceName -n namespaceName 82:82 --address=0.0.0.0
 3. open your ec2 port 82 and now your app will run on the public ip inside a kubernetes cluster and now it is sclable!
 
+## Ingress
  
