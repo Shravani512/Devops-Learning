@@ -14,6 +14,8 @@ A ConfigMap is a Kubernetes object used to store non-sensitive configuration dat
 ConfigMap = non-sensitive configuration
 Secret = sensitive, confidential configuration
 
+[!link](https://github.com/Shravani512/Devops-Learning/blob/2879f3c1ea3d4dadd6229a6b2402e390b7d9671b/Images/Secrets.png)
+
 ### You create a Secret (base64-encoded key-value data).
 - Kubernetes stores it in etcd, encrypted if encryption-at-rest is enabled.
 - Pods reference the Secret via:
