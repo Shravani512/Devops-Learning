@@ -134,6 +134,30 @@ http://localhost:8080
 - → Which routes to service → pod
 
 - Your browser → localhost:8080 → Ingress controller → service → pod
+
+### Ingress Controller
+
+The Ingress Controller is the entry gateway for external traffic into a Kubernetes cluster.
+While an Ingress resource only defines rules (like host-based or path-based routing), the Ingress Controller is the actual implementation that enforces those rules.
+
+##### What the Ingress Controller Does
+- Listens on ports 80/443 for external traffic.
+- Reads Ingress YAML rules and converts them into routing configurations.
+- Performs:
+          - Host-based routing (api.example.com → api-service)
+          - Path-based routing (/payments → payments-service)
+- Forwards traffic to the correct Kubernetes Service.
+- Handles TLS termination (HTTPS).
+- Load balances traffic across pods under the Service.
+
+  Important Notes
+
+- It runs as Pod(s) inside your cluster.
+- You need only one controller per cluster, but many Ingress resources can exist.
+- Works best with ClusterIP Services (default type).
+- Ingress Controller = Data Path, meaning it actually touches user traffic.
+- Without an Ingress Controller, Ingress resources do nothing.
+
 ```
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -162,3 +186,4 @@ spec:
                 port:
                   number: 80
 ```
+### A user sends an HTTP/HTTPS request to a public URL, which first hits the cloud entry point such as an EC2 public IP or a Load Balancer (ALB/ELB) that was provisioned by the Cloud Controller to forward traffic into the Kubernetes cluster. The request then enters a worker node where kubelet manages pods and kube-proxy applies routing rules created by Services, but the node itself does not make routing decisions. Inside the cluster, the request is picked up by the Ingress Controller (like nginx, traefik, HAProxy, or ALB Controller), which listens on ports 80/443, reads the Ingress rules, performs host/path-based routing, and forwards the traffic to the correct Service. The Service (typically ClusterIP) load-balances the request across healthy Pods and provides a stable virtual endpoint regardless of pod scaling. These resources all live inside namespaces, which logically group Services, Pods, Deployments, and Ingress resources. The Service sends the request to the appropriate application Pod created and managed through the Deployment → ReplicaSet → Pod hierarchy, where the container finally processes the request and returns the response. Meanwhile, the control plane (API Server, Scheduler, Controller Manager, etcd) is not in the data path but continuously ensures the cluster’s desired state by scheduling pods, maintaining replicas, and updating resources behind the scenes.
