@@ -1,0 +1,1 @@
+Create mysql container in k8s create its namespace, pod, secret create database in it and get into the pod and check if the database is present in the pod
