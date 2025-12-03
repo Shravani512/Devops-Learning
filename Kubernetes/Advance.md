@@ -110,4 +110,55 @@ port matching from cluster to service and service to pod is done in service yml 
 3. open your ec2 port 82 and now your app will run on the public ip inside a kubernetes cluster and now it is sclable!
 
 ## Ingress
- 
+Ingress is a component that gives your application a single external entry point (usually HTTP/HTTPS) and then routes traffic inside the cluster to the correct services.Without Ingress, your app needs: NodePort or LoadBalancer to be exposed. But with Ingress: You expose only one LoadBalancer, and Ingress can route traffic to many services behind it.
+Path-based routing means Ingress looks at the URL path and sends the request to the correct backend service.
+eg. http://mydomain.com/shop
+    http://mydomain.com/user
+
+It is present inside the cluster.
+Usually created in default or ingress-nginx namespace (depends where controller is installed).
+The Ingress Controller Pod runs inside the cluster.
+
+##### Client → Ingress (LB) → Ingress Controller → Service → Pod → Application
+Ingress ONLY decides where the request should go based on URL path or domain.
+
+#### what ingress needs to work-
+- ✔ An Ingress Controller (Eg. Nginx(we used in this course), Traefik, HAProxy)
+- ✔ A Service backing the pod
+- ✔ A LoadBalancer or NodePort (created automatically(in course) or manually)
+
+Why we need port forwarding in ingress-
+Because in local environments eg we used kind The Ingress Controller is NOT automatically exposed. Eg The Nginx ingress controller runs as a pod inside the cluster: ingress-nginx-controller : port 80 & 443 (inside cluster) But your laptop cannot directly access those ports unless: minikube exposes them OR you port-forward
+http://localhost:8080
+- → Reaches the Ingress Controller
+- → Which routes to service → pod
+
+- Your browser → localhost:8080 → Ingress controller → service → pod
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-app-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /shop
+            pathType: Prefix
+            backend:
+              service:
+                name: shop-service
+                port:
+                  number: 80
+
+          - path: /user
+            pathType: Prefix
+            backend:
+              service:
+                name: user-service
+                port:
+                  number: 80
+```
