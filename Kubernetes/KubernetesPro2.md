@@ -1,6 +1,7 @@
 ### Topics:
 - HPA
 - VPA
+- HELM
 
 ## HPA
 Horizontal Pod Autoscaler (HPA) is a Kubernetes feature that automatically increases or decreases the number of Pods in a Deployment, ReplicaSet, or
@@ -90,4 +91,42 @@ kubectl -f apply vpa.yml
 kubectl get vpa -n namespacename
 kubectl get top pod -n namespaceName
 ```
+HPA (Horizontal Pod Autoscaler) increases or decreases the number of Pods when traffic or CPU load changes.
+VPA (Vertical Pod Autoscaler) increases or decreases the CPU and memory given to a Pod.
+HPA helps handle more users, while VPA helps give right resources to each Pod.
+HPA scales sideways (more Pods), VPA scales up/down (bigger or smaller Pods).
 
+
+## HELM 
+
+Helm is a package manager for Kubernetes.
+It helps you install, upgrade, and manage Kubernetes applications easily.
+Instead of writing many YAML files, Helm uses charts (ready-made templates).
+With one command, you can deploy complex apps like NGINX, Prometheus, or Jenkins.
+
+Helm is a Kubernetes package manager that simplifies application deployment using reusable charts.
+
+Steps to setup
+install helm (command from google)
+make it execulable
+it is shell script so now run the shell script and every required things will be installed
+
+now go to helm artifacthub.io here will get command to install any package of which name we have given and follow given steps and everything will be created.
+
+Now for eg. i have a docker image of an application and wanted to deploy using helm
+- Docker run image
+- create folder for all ymls (cd helm/)
+- ls
+- helm create app-name
+- ls (here will get forlder with app-name)
+- cd app-name, ls
+- templates folder will be creates
+- cd templates, ls
+- in app-name values.yaml folder will be present here we just need to change values and everything is done
+- helm install release-name chart-name (Chart name → what to install (this chart name will be getting on artifacthub.io, Release name → name of what is installed)
+- port forwarding (kubectl port-forward pod/<pod-name> 8080:80 --address=0.0.0.0)
+- edit inbound rules and all will be running on the defined port!
+
+HELM charts-
+A Helm chart is a folder that contains everything needed to deploy an application on Kubernetes, it contains contains metadata, default values, and Kubernetes YAML templates required to deploy an application.
+Chart name tells what to install, release name tells what to call the installed app.
