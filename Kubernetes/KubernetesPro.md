@@ -214,7 +214,7 @@ node path(where pod data will be stored) <- pv.yml -> pvc.yml -> namespace -> ma
 
 Now check if data is really getting stored in storage created-
 kubectl get pods -n namespaceName
-kubectl describe pod pod_id(any) (here we can see to which node the volume is attached)
+kubectl describe pod pod_id(any) (here we can see to which node the volume is attached because any node will be assigned as this is schedulled by the scheduler)
 so now get id of that node command (docker ps) because node is a container in kind so command is docker ps
 Now enter in that node command (docker exec -it node_id)
 now go to the node path mentioned in the pv 
