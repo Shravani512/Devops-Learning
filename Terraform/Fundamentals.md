@@ -97,7 +97,9 @@ Terraform automatically reads all .tf files in this folder.
 provider "aws" {
   region = "ap-south-1"
 }
+
 --------------------
+
 #defines the input variables (their names, types, and defaults) that are referenced and used in main.tf.
 variable "instance_type" {
   type    = string
@@ -107,29 +109,35 @@ variable "instance_type" {
 variable "ami_id" {
   type = string
 }
+
 ---------------------
+
 #terraform.tfvars
 ami_id        = "ami-12345"
 instance_type = "t2.micro"
+
 ---------------------
+
 #main.tf
 resource "aws_instance" "demo" {
   ami           = var.ami_id
   instance_type = var.instance_type
 }
+
 ---------------------
+
 output "public_ip" {
   value = aws_instance.demo.public_ip
 }
 ```
 
 ### Setps for writting HCL and making it working-
-- 1. Write .tf files
-- 2. Initialize Terraform (terraform init) (in the folder where the main.tf/ resource file is present)
-- 3. terraform validate
-- 4. terraform plan
-- 5. terraform apply
-- 6. terraform destroy
+1. Write .tf files
+2. Initialize Terraform (terraform init) (in the folder where the main.tf/ resource file is present)
+3. terraform validate
+4. terraform plan
+5. terraform apply
+6. terraform destroy
 
 
 
