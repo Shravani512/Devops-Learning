@@ -68,6 +68,14 @@ resource "aws_instance" "my_ec2" {
 
 resource → creating something
 aws_instance → resource type
+
+here - aws        → provider name
+       instance   → resource type
+How to know which resource types exist?
+1. Go to Terraform Registry
+2. Open AWS Provider
+3. Check Resources section
+
 my_ec2 → local name (used inside Terraform)
 Inside {} → configuration
 }
