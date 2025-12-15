@@ -20,14 +20,14 @@ Infrastructure is repeatable
 - Works with multiple cloud providers
 
 Setup terraform on EC2 instance
-- Create EC2 instance to install terraform on it
-- install terraform from hasiCorp official link(https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
-- Install hashicorp official key from same link (commands given)
-- Verify if link is correct ( commands given)
-- Add the official HashiCorp repository to your system.
-- sudo apt update
-- sudo apt-get install terraform
-- Verify terraform --version
+1. Create EC2 instance to install terraform on it
+2. install terraform from hasiCorp official link(https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+3. Install hashicorp official key from same link (commands given)
+4. Verify if link is correct ( commands given)
+5. Add the official HashiCorp repository to your system.
+6. sudo apt update
+7. sudo apt-get install terraform
+8. Verify terraform --version
 
 Setup terraform on Local
 Chocolatey on windows
