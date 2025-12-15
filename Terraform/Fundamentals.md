@@ -67,6 +67,7 @@ we configure here to use region us-east-2 every time to create aws instance.
 resource "aws_instance" "my_ec2" {
   ami           = "ami-12345"
   instance_type = "t2.micro"
+}
 
 resource → creating something
 aws_instance → resource type
@@ -80,7 +81,6 @@ How to know which resource types exist?
 
 my_ec2 → local name (used inside Terraform)
 Inside {} → configuration
-}
 ```
 - Output Block(Used to display values after terraform apply.)
 ```
