@@ -1,5 +1,6 @@
-Assignment4: Write a script to update folder, install anything which is passed as argument while running a script then check its current status
+###Assignment4: Write a script to update folder, install anything which is passed as argument while running a script then check its current status
 
+```
 #!/bin/bash
 
 <<info install packages in file
@@ -25,3 +26,4 @@ sudo systemctl status "$1"
 echo "==========got "$1" status!!==============="
 
 echo "process completed"
+```
