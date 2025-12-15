@@ -35,7 +35,8 @@ My age is 24
 These are built-in variables automatically created by the shell.
 They hold information about the environment, system, and shell process.
 
-###### Few perdefined variables
+##### Few perdefined variables
+```
 $HOME	         -> Home directory of the current user
 $PWD	         -> Current working directory
 $USER	         -> Logged-in username
@@ -44,9 +45,10 @@ $SHELL	       -> Default shell being used
 $RANDOM        -> Returns a random number
 $#	           -> Number of arguments passed
 $?	           -> Exit status of the last command
-
-eg.
 ```
+
+```
+eg. 
 #!/bin/bash
 echo "Home directory: $HOME"
 echo "Current directory: $PWD"
@@ -86,10 +88,11 @@ Second Argument: Scripting
 Total Arguments: 2
 
 ```
-###### Overview:
+##### Overview:
+```
 User-Defined	    -> name="Shravani"	          Created by user manually
 Predefined	      -> $USER, $PWD, $RANDOM	      System/environment variables
 Arguments	        -> $1, $2, $#, $@	            Passed from command line
-
+```
 ###### To see all environment (predefined) variables using:
 printenv
