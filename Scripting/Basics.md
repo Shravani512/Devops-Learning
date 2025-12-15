@@ -1,3 +1,6 @@
+
+## Shell Scripting
+
 Shell scripting is all about automating tasks — and variables are the building blocks that make scripts dynamic and reusable.
 A variable is simply a name that stores a value (like a number, string, or command output) for later use.
 
@@ -5,9 +8,7 @@ A variable is simply a name that stores a value (like a number, string, or comma
 2. Predefined (system) variables
 3. Arguments (positional parameters)
 
---------------------------------------------------
-
-1. User-Defined Variables
+##### User-Defined Variables
 
 These are the variables created by the user in the script or terminal.
 They are used to store custom values like filenames, messages, or numbers.
@@ -16,6 +17,7 @@ variable_name=value
 👉 No spaces around = sign.
 
 eg. 
+```
 #!/bin/bash
 name="Shravani"
 age=24
@@ -26,15 +28,14 @@ echo "My age is $age"
 output: 
 My name is Shravani
 My age is 24
+```
 
---------------------------------------------------------------------------------------------------------------------------
-
-2. Predefined (System) Variables
+##### Predefined (System) Variables
 
 These are built-in variables automatically created by the shell.
 They hold information about the environment, system, and shell process.
 
-Few perdefined variables"
+###### Few perdefined variables
 $HOME	         -> Home directory of the current user
 $PWD	         -> Current working directory
 $USER	         -> Logged-in username
@@ -45,6 +46,7 @@ $#	           -> Number of arguments passed
 $?	           -> Exit status of the last command
 
 eg.
+```
 #!/bin/bash
 echo "Home directory: $HOME"
 echo "Current directory: $PWD"
@@ -58,10 +60,9 @@ Current directory: /home/ubuntu/scripts
 User: ubuntu
 Shell: /bin/bash
 Random Number: 23849
+```
 
--------------------------------------------------------------------------------------------------
-
-3. Arguments (Positional Parameters)
+##### Arguments (Positional Parameters)
 
 When you run a script, you can pass arguments from the command line.
 These are accessed using positional parameters like $1, $2, $3, etc.
@@ -69,6 +70,7 @@ These are accessed using positional parameters like $1, $2, $3, etc.
 ./scriptname.sh arg1 arg2 arg3
 
 eg.
+```
 #!/bin/bash
 echo "Script Name: $0"
 echo "First Argument: $1"
@@ -83,13 +85,11 @@ First Argument: Linux
 Second Argument: Scripting
 Total Arguments: 2
 
---------------------------------------------------------------------------------------------------
-
+```
+###### Overview:
 User-Defined	    -> name="Shravani"	          Created by user manually
 Predefined	      -> $USER, $PWD, $RANDOM	      System/environment variables
 Arguments	        -> $1, $2, $#, $@	            Passed from command line
 
---------------------------------------------------------------------------------------------------
-
-see all environment (predefined) variables using:
+###### To see all environment (predefined) variables using:
 printenv
