@@ -147,5 +147,26 @@ output "public_ip" {
 5. terraform apply
 6. terraform destroy
 
+### How to install terraform provider
+for eg. we wanted to automate creation of s3_bucket but we do not have aws provider(aws_s3_bucket) for it so have to install.
+1. create terraform.tf to write HCL
+2. Google search aws provider will get a official page provided by hasicorp in top right corner option of use provider (https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+3. copy and paste it in terraform.tf
+4. again do terraform init to install provider
+5. check if installed or not at location cd terraform/provider/registry.terraform.io/hashicorp
 
+### Install aws CLI to connect local machine to your aws account
+1. google search install aws cli (https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+2. you will get command (curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip")(zip will be downloaded check ls)
+3. to unzip download unzip (sudo apt-install unzip)
+4. unzip awscliv2.zip
+5. sudo ./aws/install
+6. aws --version
+
+### Configure AWS CLI
+1. command (aws configure)
+2. it will ask access key_id
+3. go to aws account search (iam)->create user-> attach policies-> search se full access-> create
+4. in sercurity credential of that user-> create access key for user-> CLI-> next-> you will get access key and secret access key-> paste it and config done
+5. local is connected to aws CLI you can check using command (aws s3 ls) to see all s3 buckets.
 
