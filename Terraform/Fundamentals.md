@@ -59,6 +59,8 @@ Most Common
 provider "aws" {
   region = "ap-south-1"
 }
+
+we configure here to use region us-east-2 every time to create aws instance.
 ```
 - Resource block(main.tf)(Used to create infrastructure.)
 ```
