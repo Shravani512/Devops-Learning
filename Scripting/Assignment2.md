@@ -1,8 +1,8 @@
-Assignment 2: variables-
+### Assignment 2: variables-
    user defined and pre defined
    arguements
 
-
+```
 #!/bin/bash
 
 #variables
@@ -35,4 +35,4 @@ echo "my 3rd  friend is $4"
 
 echo "my total friends are $(($#-1))"
 echo "my all friends names are ${@:2}"
-
+```
