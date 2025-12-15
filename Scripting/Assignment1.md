@@ -1,5 +1,5 @@
-Assignment1: write a script to created folder and file
-
+### Assignment1: write a script to created folder and file
+```
 #!/bin/bash
 
 echo "Creating a folder"
@@ -25,3 +25,4 @@ if find . -type f -name "assignment.txt" | grep -q .; then
 else
         echo "$filename file not created"
 fi
+```
