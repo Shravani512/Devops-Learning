@@ -1,7 +1,7 @@
-Assignment3: Write a script for created user sucessfully
+### Assignment3: Write a script for created user sucessfully
             and deleting  created user sucessfully
 
-
+```
 #!/bin/bash
 
 echo "==========User creation started============"
@@ -28,3 +28,4 @@ if id $username &>/dev/null; then
 else
         echo "$username user delete successfully"
 fi
+```
