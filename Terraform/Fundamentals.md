@@ -1,4 +1,4 @@
-### TerraForm
+## Terraform
 
 Terraform is a tool used to create, change, and manage infrastructure using code instead of doing it manually. This concept is called Infrastructure as Code (IaC).
 Instead of Clicking in AWS console, Creating EC2, VPC, Load Balancer manually You write code, run a command, and Terraform does everything for you.
