@@ -30,7 +30,8 @@ Setup terraform on EC2 instance
 8. Verify terraform --version
 
 Setup terraform on Local
-1. Chocolatey on windows
+1. open cmd as administrator
+2. choco install terraform -y
 
 ##### HCL (HashiCorp Configuration Language)
 HCL is the language used by Terraform to describe infrastructure. A clean, readable way to describe cloud resources using blocks and attributes.
