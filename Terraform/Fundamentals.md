@@ -172,4 +172,9 @@ for eg. we wanted to automate creation of s3_bucket but we do not have aws provi
 4. in sercurity credential of that user-> create access key for user-> CLI-> next-> you will get access key and secret access key-> paste it and config done
 5. local is connected to aws CLI you can check using command (aws s3 ls) to see all s3 buckets.
 6. Verify aws is configured (aws sts get-caller-identity)
+7. Get list of name of instances running on aws account (aws ec2 describe-instances \
+  --filters Name=instance-state-name,Values=running \
+  --query "Reservations[].Instances[].{InstanceId:InstanceId,Name:Tags[?Key=='Name']|[0].Value}" \
+  --output table)
+
 
