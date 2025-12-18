@@ -177,5 +177,9 @@ for eg. we wanted to automate creation of s3_bucket but we do not have aws provi
   --filters Name=instance-state-name,Values=running \
   --query "Reservations[].Instances[].{InstanceId:InstanceId,Name:Tags[?Key=='Name']|[0].Value}" \
   --output table)
+8. aws ec2 describe-instances \
+  --query "Reservations[].Instances[].{ID:InstanceId,State:State.Name,Region:Placement.AvailabilityZone}" \
+  --output table
+   (to check which instance is running on which region) 
 
 
