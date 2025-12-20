@@ -3,6 +3,7 @@
 ##### Topics:
 1. Metadata (count, for_each, depends on)
 2. Conditional Expressions
+3. TF State management
 
 ##### Metadata
 ```
@@ -57,3 +58,32 @@ var.env == "prod" ? "t3.micro" : "t2.micro"
 If env is prod → use t3.micro
 Else → use t2.micro
 ```
+
+##### TF state 
+Terraform state is the source of truth that maps Terraform code to real cloud resources
+
+Terraform state is a file that records what infrastructure Terraform has created in the real cloud. It maps resource definitions in Terraform code to actual resource IDs in providers like AWS. Because of this mapping, Terraform knows what already exists, what to change, and what to destroy.
+
+Basic commands used-
+1. terraform state list
+2. terraform state show
+3. terraform state rm id
+4. terraform state mv
+5. terraform state push
+6. terraform state pull
+7. terraform import
+```
+eg. wanted to import instance which in made on GUI but not on present on terraform
+
+resourse aws_instance my_new_instance{
+      ami="unknown"
+      instance_state="unknown"
+}
+
+terraform import aws_instance.my_new_instance instance_id(from GUI)
+terraform state list (list will now contain imported instance)
+terraform show aws_instance.my_new_instance (instance name and details of imported instance with id will be shown)
+```
+
+
+
